@@ -1,6 +1,6 @@
 package com.facom.algoprog2.prog2Trabalho.model;
 
-public class Paciente {
+public class Paciente implements Comparable{
 	private String nome;
 	private String cpf;
 	private int grau;
@@ -20,7 +20,18 @@ public class Paciente {
 	public String getCpf() {
 		return cpf;
 	}
-	
+	public int compareTo(Object o){
+		Paciente p = new Paciente();
+		if(getGrau()>p.getGrau())
+			return 1;
+		else{
+			if(getGrau()<p.getGrau())
+				return -1;
+			else
+				return 0;
+			
+		}
+	}
 	
 	public static void main(String[] args) {
 		Paciente p = new Paciente();
