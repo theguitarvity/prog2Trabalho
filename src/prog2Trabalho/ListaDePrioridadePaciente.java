@@ -50,6 +50,8 @@ public class ListaDePrioridadePaciente {
 		}
 	}
 	public void insere(Paciente p){
+		if(estaCheio())
+			realoca();
 		pacientes[n] = p;
 		n++;
 		sobe(n-1);
@@ -62,9 +64,25 @@ public class ListaDePrioridadePaciente {
 			desce(0);
 		return p;
 	}
+	public boolean estaCheio(){
+		return (n+1)%pacientes.length==0;
+	}
+	private void realoca(){
+		Paciente[] aux = new Paciente[pacientes.length*2];
+		for(int i = 0; i<pacientes.length;i++)
+			aux[i] = pacientes[i];
+		pacientes = aux;
+			
+		
+	}
 	private void troca(int i, int j){		
 		Paciente aux = pacientes[i];
 		pacientes[i] = pacientes[j];
 		pacientes[j] = aux;
+	}
+	public void exibir(){
+		for(int i = 0; i<pacientes.length;i++)
+			System.out.println(pacientes[i].getGrau());
+			
 	}
 }

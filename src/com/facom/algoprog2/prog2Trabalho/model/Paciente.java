@@ -8,6 +8,13 @@ public class Paciente implements Comparable{
 	
 	
 	
+	public Paciente(String nome, String cpf, int grau) {
+		
+		this.nome = nome;
+		this.cpf = cpf;
+		this.grau = grau;
+	}
+	
 	public int getGrau() {
 		return grau;
 	}
@@ -21,7 +28,7 @@ public class Paciente implements Comparable{
 		return cpf;
 	}
 	public int compareTo(Object o){
-		Paciente p = new Paciente();
+		Paciente p = (Paciente) o;
 		if(getGrau()>p.getGrau())
 			return 1;
 		else{
@@ -33,9 +40,5 @@ public class Paciente implements Comparable{
 		}
 	}
 	
-	public static void main(String[] args) {
-		Paciente p = new Paciente();
-		p.setGrau(10);
-		
-	}
+	
 }
