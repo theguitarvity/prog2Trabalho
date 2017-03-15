@@ -1,3 +1,7 @@
+
+
+import com.facom.algoprog2.prog2Trabalho.model.Paciente;
+
 public class ListaDePrioridadePaciente {
 	private Paciente[] pacientes;
 	private int n;
